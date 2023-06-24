@@ -2,23 +2,23 @@
 #include<string.h>
 
 int main(){
-    int n, i, j; //«Ø¥ßÅÜ¼Æ n¿é¤J±K½Xªº¦¸¼Æ i,j°j°é 
-    char w[12] = {0}; //«Ø¥ß °}¦Cw¦s©ñ±K½X 
+    int n, i, j; //å»ºç«‹è®Šæ•¸ nè¼¸å…¥å¯†ç¢¼çš„æ¬¡æ•¸ i,jè¿´åœˆ 
+    char w[12] = {0}; //å»ºç«‹ é™£åˆ—wå­˜æ”¾å¯†ç¢¼ 
 
-    printf("input:"); //¿é¥X´£¥Ü¦r 
-    scanf("%d", &n);  //¿é¤J¦¸¼Æ 
+    printf("input:"); //è¼¸å‡ºæç¤ºå­— 
+    scanf("%d", &n);  //è¼¸å…¥æ¬¡æ•¸ 
 
-    char W[n][12];   //«Ø¥ß¤Gºû°}¦C¦s©ñ±K½X 
-    float scores[n]; //«Ø¥ß¤À¼Æ°}¦C 
-    int words[n];	//¦s©ñ±K½X¦r¼Æ 
+    char W[n][12];   //å»ºç«‹äºŒç¶­é™£åˆ—å­˜æ”¾å¯†ç¢¼ 
+    float scores[n]; //å»ºç«‹åˆ†æ•¸é™£åˆ— 
+    int words[n];	//å­˜æ”¾å¯†ç¢¼å­—æ•¸ 
 
     for(i=0; i<n; i++){  
-        printf("input your password:"); //¿é¥X´£¥Ü¦r 
-        scanf("%s", w);		 //¿é¤J±K½X
-        strncpy(W[i], w, 9); //¨Ï¥Î¨ç¦¡½Æ»s¤å¦r¨ì¤Gºû°}¦C 
+        printf("input your password:"); //è¼¸å‡ºæç¤ºå­— 
+        scanf("%s", w);		 //è¼¸å…¥å¯†ç¢¼
+        strncpy(W[i], w, 9); //ä½¿ç”¨å‡½å¼è¤‡è£½æ–‡å­—åˆ°äºŒç¶­é™£åˆ— 
     }
 
-    for(i=0; i<n; i++){ //­pºâ¦r¼Æ 
+    for(i=0; i<n; i++){ //è¨ˆç®—å­—æ•¸ 
         scores[i] = 0;
         words[i] = 0;
         for(j=0; W[i][j] != '\0'; j++){
@@ -32,54 +32,54 @@ int main(){
     }
     */
     
-    for(i=0; i<n; i++){ //¥[¤À 
+    for(i=0; i<n; i++){ //åŠ åˆ† 
     
-        if(words[i] >= 8 && words[i] <= 10){       //§PÂ_±K½X¦r¼Æ¬O§_ >=8, <=10 
+        if(words[i] >= 8 && words[i] <= 10){       //åˆ¤æ–·å¯†ç¢¼å­—æ•¸æ˜¯å¦ >=8, <=10 
             scores[i] += words[i];
         }
-        else if(words[i] >= 11 && words[i] <= 12){ //§PÂ_±K½X¦r¼Æ¬O§_ >=11, <=12
+        else if(words[i] >= 11 && words[i] <= 12){ //åˆ¤æ–·å¯†ç¢¼å­—æ•¸æ˜¯å¦ >=11, <=12
             scores[i] += words[i]*1.1;
         }
-        else if(words[i] < 4){					   //§PÂ_±K½X¦r¼Æ¬O§_ < 4
+        else if(words[i] < 4){					   //åˆ¤æ–·å¯†ç¢¼å­—æ•¸æ˜¯å¦ < 4
             scores[i] -= words[i];
         }
         
         for(j=0; j<words[i] ; j++){
-            if(W[i][j] >= 48 && W[i][j] <= 57){ //§PÂ_¬Û¦P¼Æ¦r
+            if(W[i][j] >= 48 && W[i][j] <= 57){ //åˆ¤æ–·ç›¸åŒæ•¸å­—
                 if(W[i][j] == W[i][j+1]) { break; }
             }
-            else if((W[i][j] >= 65 && W[i][j] <= 90) || (W[i][j] >= 97 && W[i][j] <= 122)){ //§PÂ_³sÄò¬Û¦P¦r¥À 
+            else if((W[i][j] >= 65 && W[i][j] <= 90) || (W[i][j] >= 97 && W[i][j] <= 122)){ //åˆ¤æ–·é€£çºŒç›¸åŒå­—æ¯ 
             	if(W[i][j] == W[i][j+1]) { break; }
             	else if((W[i][j]+1) == W[i][j+1]) { break; }
 			}
-            else{	//§_«h +2 ¤À 
+            else{	//å¦å‰‡ +2 åˆ† 
                 scores[i] += 2;
                 break;
             }
         }
     }
 	
-    for(i=0; i<n; i++){ //¦©¤À 
+    for(i=0; i<n; i++){ //æ‰£åˆ† 
         for(j=0; j<words[i]; j++){
 
-            if(W[i][j] >= 48 && W[i][j] <= 57){ //§PÂ_¬O§_¬°¬Û¦P¼Æ¦r 
+            if(W[i][j] >= 48 && W[i][j] <= 57){ //åˆ¤æ–·æ˜¯å¦ç‚ºç›¸åŒæ•¸å­— 
                 if(W[i][j] == W[i][j+1]){
                     scores[i] -= 0.9;
                 }
             }
 
             else if((W[i][j] >= 65 && W[i][j] <= 90) || (W[i][j] >= 97 && W[i][j] <= 122)){ 
-			//§PÂ_¬Û¦P©M³sÄò¦r¥À¦©¤À 
-                if(W[i][j] == W[i][j+1]){ //¬O§_¬°¬Û¦P¦r¥À 
+			//åˆ¤æ–·ç›¸åŒå’Œé€£çºŒå­—æ¯æ‰£åˆ† 
+                if(W[i][j] == W[i][j+1]){ //æ˜¯å¦ç‚ºç›¸åŒå­—æ¯ 
                     scores[i] -= 1;
                 }
 
-                if((W[i][j]+1) == W[i][j+1]){ //¬O§_¬°³sÄò¦r¥À 
+                if((W[i][j]+1) == W[i][j+1]){ //æ˜¯å¦ç‚ºé€£çºŒå­—æ¯ 
                     scores[i] -= 0.5;
                 }
             }
 
-            else if(W[i][j] == W[i][j+1]){ //§PÂ_¬O§_¬°¬Û¦P²Å¸¹ 
+            else if(W[i][j] == W[i][j+1]){ //åˆ¤æ–·æ˜¯å¦ç‚ºç›¸åŒç¬¦è™Ÿ 
             	scores[i] -= 0.8;
 
             }
@@ -92,12 +92,12 @@ int main(){
 	}
 	*/
 	
-    for(i=0; i<n; i++){        //¿é¥Xµ²ªG 
-    	if(scores[i] < 0){		//¦pªG¤À¼Æ < 0 
-    		printf("False\n");	//¿é¥XFalse 
+    for(i=0; i<n; i++){        //è¼¸å‡ºçµæœ 
+    	if(scores[i] < 0){		//å¦‚æœåˆ†æ•¸ < 0 
+    		printf("False\n");	//è¼¸å‡ºFalse 
 		}
 		else{
-			printf("True\n"); //§_«h ¿é¥XTrue 
+			printf("True\n"); //å¦å‰‡ è¼¸å‡ºTrue 
 		}
 	}
 	
